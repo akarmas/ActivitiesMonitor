@@ -18,4 +18,10 @@
 
 
 from django.conf.urls import patterns, url
+from activedata import views
+
+urlpatterns = patterns('',
+    url(r'^$', views.index, name='index'),
+	url(r'^show_demo/$', views.show_demo, name='show_demo'),
+)
 

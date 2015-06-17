@@ -19,5 +19,65 @@
 
 #from django.db import models
 
+from django.contrib.gis.db import models
+
 # Create your models here.
 
+class Profiles(models.Model):
+
+	# Regular Django fields corresponding to the attributes of
+	# each user profile
+	
+	name = models.CharField(max_length=50, primary_key=True)
+	age = models.IntegerField(default=0)
+	gender = models.CharField(max_length=1, default='F')
+	car = models.CharField(max_length=3, default='No')
+	
+
+	# Returns the string representation of the model.
+	def __unicode__(self):              # __str__ on Python 3
+		return self.name
+
+class ActiveEntries(models.Model):
+
+	# Regular Django fields corresponding to the attributes of
+	# each coverage
+
+	timestamp = models.DateTimeField(default='1111-11-11 15:15:15')
+	event = models.CharField(max_length=100, default='nothing')
+	transport = models.CharField(max_length=100, default='Walking')
+	comment = models.CharField(max_length=200, default='')
+	origin = models.ForeignKey('ActiveEntries', null=True)
+	profile = models.ForeignKey('Profiles', default='prof_0')
+
+	# GeoDjango-specific: a geometry field (PointFieldField), and
+	# overriding the default manager with a GeoManager instance.
+
+	location = models.PointField()
+	objects = models.GeoManager()
+
+	# Returns the string representation of the model.
+	def __unicode__(self):              # __str__ on Python 3
+		return self.event
+
+class Ota(models.Model):
+	# Regular Django fields corresponding to the attributes of
+	# each coverage
+
+	objectid = models.IntegerField(default=0)
+	code_ota = models.CharField(max_length=20, default='')
+	shape_leng = models.CharField(max_length=100, default='')
+	shape_area = models.CharField(max_length=100, default='')
+	name_ota = models.CharField(max_length=100, default='')
+	code_nom = models.CharField(max_length=10, default='')
+	name_nom = models.CharField(max_length=100, default='')
+
+	# GeoDjango-specific: a geometry field (PointFieldField), and
+	# overriding the default manager with a GeoManager instance.
+
+	geom = models.MultiPolygonField()
+	objects = models.GeoManager()
+
+	# Returns the string representation of the model.
+	def __unicode__(self):              # __str__ on Python 3
+		return self.name_ota

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+{% load staticfiles %} <!-- New line -->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>ActivitiesMonitor</title>
+		
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3.6" type="text/javascript"></script>
+		<!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static "styles/default.css" %}" />
+		<link href="{% static "styles/geo_icons.css" %}" rel="stylesheet" type="text/css" />
+        <!-- jQuery -->
+        <script src="{% static "js_libs/jQuery/jquery-1.6.2.min.js" %}" type='text/javascript'></script>
+        <script src="{% static "js_libs/jQuery/jquery-ui-1.8.16.custom.min.js" %}" type='text/javascript'></script>
+		<!-- Ext -->
+		<script src="{% static "js_libs/ext-3.4.0/adapter/ext/ext-base.js" %}" type="text/javascript"></script>
+	    <script src="{% static "js_libs/ext-3.4.0/ext-all.js" %}"  type="text/javascript"></script>
+    	<link rel="stylesheet" type="text/css" href="{% static "js_libs/ext-3.4.0/resources/css/ext-all.css" %}"/>
+	    <!-- Openlayers -->
+	
+		<script src="{% static "js_libs/OpenLayers-2.13.1/OpenLayers.js" %}" type='text/javascript'></script>
+		<link rel='stylesheet' type='text/css' href="{% static "js_libs/OpenLayers-2.13.1/style.css" %}" />
+		<!-- heatmap.js -->
+		<script src="{% static "js_libs/heatmap-js/heatmap.js" %}" type='text/javascript'></script>
+		<script src="{% static "js_libs/heatmap-js/heatmap-openlayers.js" %}" type='text/javascript'></script>
+		<!-- GeoExt -->
+		<script src="{% static "js_libs/GeoExt/script/GeoExt.js" %}" type="text/javascript"></script>
+	    <link rel="stylesheet" type="text/css" href="{% static "js_libs/GeoExt/resources/css/geoext-all-debug.css" %}"/>
+		<!-- OpenStreetMap base layer js -->
+		<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+        
+		<!-- Global variable declaration -->
+        <script src="{% static "javascript/globalvar.js" %}" type='text/javascript'></script>
+	
+		<!--Main Javascript-->
+		<script src="{% static "javascript/general.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/def_base_layers.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/gui.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/analysis_accordion.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/pass_js_to_php.js" %}" type='text/javascript'></script>		
+		<script src="{% static "javascript/def_map.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/geoext_toolbar.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/def_map_panel.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/def_layers_tree.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/legendpanel.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/main_window.js" %}" type='text/javascript'></script>
+		<script src="{% static "javascript/toggle.js" %}" type='text/javascript'></script>
+
+		<script src="{% static "javascript/main.js" %}" type='text/javascript'></script>
+
+		<style type="text/css">
+        /* work around an Ext bug that makes the rendering
+            of menu items not as one would expect */
+    	    .ext-ie .x-menu-item-icon {
+        	    left: -24px;
+        	}
+        	.ext-strict .x-menu-item-icon {
+            	left: 3px;
+        	}
+        	.ext-ie6 .x-menu-item-icon {
+            	left: -24px;
+        	}
+        	.ext-ie7 .x-menu-item-icon {
+           		left: -24px;
+        	}
+	    </style>
+	
+	</head>
+	<body>
+		<img id="loading" src="{% static "images/ajax-loader.gif" %}" alt="Loading" style="display:none">
+	</body>
+</html>
