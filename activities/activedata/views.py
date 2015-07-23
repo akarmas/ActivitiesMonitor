@@ -41,6 +41,10 @@ from StringIO import StringIO
 
 from activedata.models import *
 
+# Util imports
+
+from util.arg_parse import *
+
 # Create your views here.
 
 def index(request):
@@ -56,5 +60,49 @@ def show_demo(request):
 	
 	for x in res:
 		results.append(x.location.wkt)
+
+	return HttpResponse(json.dumps(results))
+
+
+@csrf_exempt
+def analyze(request):
+	
+	res1 = []
+	res2 = []
+	res3 = []
+	results = []
+
+	gender = int(request.POST['gender'])
+	car = int(request.POST['car'])
+	thres1 = int(request.POST['thres1'])
+	thres2 = int(request.POST['thres2'])
+	weekday = int(request.POST['weekday'])
+	activity = int(request.POST['activity'])
+
+	# calculate result records set based on user analysis options
+
+	resultset, ota_query = query_builder(gender, car, thres1, thres2, weekday, activity)
+
+	if len(resultset) != 0:	
+
+		# contruct results array for visualization
+
+		for item in resultset:
+			res1.append(item.location.wkt)
+
+		# calculate top 3 OTA that contain the more records in the result set
+
+		ota_set = Ota.objects.all().raw(ota_query)
+		for item in ota_set:
+			res2.append(dict(name=item.name_ota, coords=item.geom.wkt))
+
+		# calculate spatial mean value of the result set
+
+		spmean = resultset.collect().centroid.wkt
+		res3.append(spmean)
+
+	results.append(res1)
+	results.append(res2)
+	results.append(res3)
 
 	return HttpResponse(json.dumps(results))

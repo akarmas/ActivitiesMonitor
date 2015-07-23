@@ -23,5 +23,6 @@ from activedata import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
 	url(r'^show_demo/$', views.show_demo, name='show_demo'),
+	url(r'^analyze/$', views.analyze, name='analyze'),
 )
 
