@@ -1,0 +1,57 @@
+.controls_map_zoomtomapextent{
+	background-image: url('../images/geo_icons/arrow_out.png');
+}
+.controls_map_zoomin{
+	background-image: url('../images/geo_icons/magnifier_zoom_in.png');
+}
+.controls_map_zoomout{
+	background-image: url('../images/geo_icons/magnifier_zoom_out.png');
+}
+.controls_map_zoombox{
+	background-image: url('../images/geo_icons/magnifier.png');
+}
+.controls_map_zoomtoprevious{
+	background-image: url('../images/geo_icons/arrow_left.png');
+}
+.controls_map_zoomtonext{
+	background-image: url('../images/geo_icons/arrow_right.png');
+}
+.controls_map_navigation{
+	background-image: url('../images/geo_icons/navigation.png');
+}
+.controls_map_drawpoint{
+	background-image: url('../images/geo_icons/drawPoint.png');
+}
+.controls_map_drawline{
+	background-image: url('../images/geo_icons/drawLine.png');
+}
+.controls_map_drawpolygon{
+	background-image: url('../images/geo_icons/drawPolygon.png');
+}
+.controls_map_editfeature{
+	background-image: url('../images/geo_icons/shape_square_edit.png');
+}
+.controls_map_vectordelete{
+	background-image: url('../images/geo_icons/shape_square_delete.png');
+}
+.controls_map_measureline{
+	background-image: url('../images/geo_icons/ruler.png');
+}
+.controls_map_measurearea{
+	background-image: url('../images/geo_icons/ruler_square.png');
+}
+.controls_map_getfeatureinfo{
+	background-image: url('../images/geo_icons/information.png');
+}
+.controls_map_modifyattributes{
+	background-image: url('../images/geo_icons/modifyFeature.png');
+}
+.controls_youtube_link{
+    background-image: url('../images/Youtube-icon_20x20.png');
+}
+.controls_map_download_geotiff{
+	background-image: url('../images/geo_icons/gtiff.png');
+}
+.controls_map_demo{
+	background-image: url('../images/Info-icon.png');
+}
